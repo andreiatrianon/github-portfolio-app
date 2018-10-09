@@ -4,6 +4,8 @@ import './App.css';
 
 import RepositoryCard from './RepositoryCard';
 
+const user = 'reactjs';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +17,7 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    let reporitories = await fetch("https://api.github.com/users/andreiatrianon/repos")
+    let reporitories = await fetch(`https://api.github.com/users/${user}/repos`)
       .then(res => res.json())
       .then(
         (result) => result,
@@ -40,7 +42,8 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       return items.map(item => 
-        <RepositoryCard name={item.name} 
+        <RepositoryCard name={item.name}
+                        url={item.html_url} 
                         stars={item.stargazers_count} 
                         forks={item.forks_count} 
                         created={item.created_at} 

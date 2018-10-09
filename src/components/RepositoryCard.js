@@ -6,11 +6,27 @@ class RepositoryCard extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.handleRepositoryClick = this.handleRepositoryClick.bind(this);
+    this.handleCommitClick = this.handleCommitClick.bind(this);
   }
 
-   handleClick() {
-    ReactDOM.render(<CommitPage repository={this.props.name} />, document.getElementById('root'));
+  handleRepositoryClick() {
+    window.open(
+      `${this.props.url}`,
+      '_blank'
+    );
+  }
+
+   handleCommitClick() {
+
+    let template = <div class="container text-center">
+                    <h3 class="mb-5">20 last Commits from <span id="repository-name" class="my-text-yellow" onClick={this.handleRepositoryClick}>{this.props.name}</span></h3>
+                    <div class="card-deck mb-3 text-center">
+                      <CommitPage repository={this.props.name} />
+                    </div>
+                  </div>
+
+    ReactDOM.render(template, document.getElementById('root'));
   }
 
   render() {
@@ -18,19 +34,19 @@ class RepositoryCard extends React.Component {
     let formatUpdatedDate = new Date(this.props.updated).toString();
     return (
       <div class="card mb-4 shadow-sm">
-        <div class="card-header">
-          <h4 class="my-0 font-weight-normal">{this.props.name}</h4>
+        <div id="repository-name" class="card-header">
+          <h4 class="my-0 font-weight-normal" onClick={this.handleRepositoryClick}>{this.props.name}</h4>
         </div>
         <div class="card-body">
-          <h4 class="my-text-yellow d-inline mr-4"><i class="fas fa-star"></i> {this.props.stars}</h4>
-          <h4 class="my-text-yellow d-inline"><i class="fas fa-code-branch"></i> {this.props.forks}</h4>
+          <h6 class="my-text-yellow d-inline mr-4"><i class="fas fa-star"></i> {this.props.stars}</h6>
+          <h6 class="my-text-yellow d-inline"><i class="fas fa-code-branch"></i> {this.props.forks}</h6>
           <ul class="list-unstyled mt-3 mb-4">
             <li>created at {formatCreatedDate}</li>
             <li>updated at {formatUpdatedDate}</li>
             <li class="text-primary">{this.props.language}</li>
-            <li>{this.props.issues} open issues</li>
+            <li class="text-danger">{this.props.issues} open issues</li>
           </ul>
-          <button type="button" class="btn btn-lg btn-block btn-outline-dark" onClick={this.handleClick}>See commits</button>
+          <button type="button" class="btn btn-lg btn-block btn-outline-dark" onClick={this.handleCommitClick}>See commits</button>
         </div>
       </div>
     );

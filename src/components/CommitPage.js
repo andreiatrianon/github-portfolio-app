@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import CommitCard from './CommitCard';
 
+const user = 'reactjs';
+
 class CommitPage extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,7 @@ class CommitPage extends Component {
   }
 
   async componentDidMount() {
-    let url = `https://api.github.com/repos/andreiatrianon/${this.props.repository}/commits`
+    let url = `https://api.github.com/repos/${user}/${this.props.repository}/commits`
     let commits = await fetch(url)
       .then(res => res.json())
       .then(

@@ -21,6 +21,11 @@ code {
   min-width: 220px;
 }
 
-.my-text-yellow {
+#repository-name:hover {
+  cursor: pointer;
+  background-color: white;
+}
+
+#repository-name:hover, .my-text-yellow {
   color: #ffab40;
 }
