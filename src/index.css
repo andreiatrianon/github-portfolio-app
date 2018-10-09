@@ -17,7 +17,7 @@ code {
   color: white;
 }
 
-.card-deck .card {
+.card-deck .card, .card-deck .col-lg-4 {
   min-width: 220px;
 }
 

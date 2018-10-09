@@ -8,6 +8,7 @@ class RepositoryCard extends React.Component {
     super(props);
     this.handleRepositoryClick = this.handleRepositoryClick.bind(this);
     this.handleCommitClick = this.handleCommitClick.bind(this);
+    this.onSearchInput = this.onSearchInput.bind(this);
   }
 
   handleRepositoryClick() {
@@ -19,14 +20,29 @@ class RepositoryCard extends React.Component {
 
    handleCommitClick() {
 
-    let template = <div class="container text-center">
+    let template = <div class="container text-center d-flex flex-column align-items-center">
                     <h3 class="mb-5">20 last Commits from <span id="repository-name" class="my-text-yellow" onClick={this.handleRepositoryClick}>{this.props.name}</span></h3>
+                    <input type="search" class="form-control w-25 mb-5" id="search-input" placeholder="Search..." onInput={this.onSearchInput}></input>
                     <div class="card-deck mb-3 text-center">
                       <CommitPage repository={this.props.name} />
                     </div>
                   </div>
 
     ReactDOM.render(template, document.getElementById('root'));
+  }
+
+  onSearchInput() {
+    let inputValue = document.getElementById('search-input').value;
+    let inputValueLength = inputValue.length;
+    Array.prototype.map.call(document.querySelectorAll(".commit-message"), commit => {
+      let msg = commit.textContent;
+      let msgLetters = msg.slice(0, inputValueLength);
+      if (msgLetters.toLowerCase() === inputValue.toLowerCase()) {
+        commit.closest('.col-lg-4').style.display = 'block'; 
+      } else {
+        commit.closest('.col-lg-4').style.display = 'none';;
+      }
+    });
   }
 
   render() {

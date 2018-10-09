@@ -40,9 +40,10 @@ class CommitPage extends Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      return items.map(item => 
-      <CommitCard avatar={item.committer.avatar_url} name={item.commit.committer.name} date={item.commit.committer.date} message={item.commit.message} url={item.html_url}/>
-      )
+      return items.slice(0, 20)
+            .map(item =>
+            <CommitCard avatar={item.committer.avatar_url || ''} name={item.commit.committer.name || ''} date={item.commit.committer.date || ''} message={item.commit.message || ''} url={item.html_url || ''}/>
+            )
     }
   }
 }
