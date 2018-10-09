@@ -42,7 +42,7 @@ class CommitPage extends Component {
     } else {
       return items.slice(0, 20)
             .map(item =>
-            <CommitCard avatar={item.committer.avatar_url || ''} name={item.commit.committer.name || ''} date={item.commit.committer.date || ''} message={item.commit.message || ''} url={item.html_url || ''}/>
+            <CommitCard avatar={item.committer? item.committer.avatar_url:''} name={item.commit.committer.name || ''} date={item.commit.committer.date || ''} message={item.commit.message || ''} url={item.html_url || ''}/>
             )
     }
   }

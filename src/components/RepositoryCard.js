@@ -60,7 +60,7 @@ class RepositoryCard extends React.Component {
             <li>created at {formatCreatedDate}</li>
             <li>updated at {formatUpdatedDate}</li>
             <li class="text-primary">{this.props.language}</li>
-            <li class="text-danger">{this.props.issues} open issues</li>
+            <li class="text-danger">{this.props.issues} open issues and pull requests</li>
           </ul>
           <button type="button" class="btn btn-lg btn-block btn-outline-dark" onClick={this.handleCommitClick}>See commits</button>
         </div>
