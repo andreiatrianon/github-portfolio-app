@@ -2,18 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import onChangeSelect from './components/Select';
+import sortList from './components/RepositoryCard';
 import * as serviceWorker from './serviceWorker';
 
 let template = <div class="container text-center">
-                  <h3 class="mb-3">Repositories List</h3>
-                  <select class="custom-select w-25 mb-5" id="select-order" onChange={onChangeSelect}>
-                    <option selected>Order by:</option>
-                    <option value="name">Name</option>
-                    <option value="stars">Stars</option>
-                    <option value="forks">Forks</option>
-                    <option value="issues">Issues</option>
-                  </select>
+                  <h3 class="mb-5">Repositories List</h3>
                   <div class="card-deck mb-3 text-center">
                     <App />
                   </div>
