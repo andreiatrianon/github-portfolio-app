@@ -49,20 +49,20 @@ class RepositoryCard extends React.Component {
     let formatCreatedDate = new Date(this.props.created).toString();
     let formatUpdatedDate = new Date(this.props.updated).toString();
     return (
-      <div class="card mb-4 shadow-sm">
-        <div id="repository-name" class="card-header">
-          <h4 class="my-0 font-weight-normal" onClick={this.handleRepositoryClick}>{this.props.name}</h4>
+      <div className="card mb-4 shadow-sm">
+        <div className="card-header repository-name">
+          <h4 className="my-0 font-weight-normal" onClick={this.handleRepositoryClick}>{this.props.name}</h4>
         </div>
-        <div class="card-body">
-          <h6 class="my-text-yellow d-inline mr-4"><i class="fas fa-star"></i> {this.props.stars}</h6>
-          <h6 class="my-text-yellow d-inline"><i class="fas fa-code-branch"></i> {this.props.forks}</h6>
-          <ul class="list-unstyled mt-3 mb-4">
+        <div className="card-body">
+          <h6 className="my-text-yellow d-inline mr-4"><i className="fas fa-star"></i> {this.props.stars}</h6>
+          <h6 className="my-text-yellow d-inline"><i className="fas fa-code-branch"></i> {this.props.forks}</h6>
+          <ul className="list-unstyled mt-3 mb-4">
             <li>created at {formatCreatedDate}</li>
             <li>updated at {formatUpdatedDate}</li>
-            <li class="text-primary">{this.props.language}</li>
-            <li class="text-danger">{this.props.issues} open issues and pull requests</li>
+            <li className="text-primary">{this.props.language}</li>
+            <li className="text-danger">{this.props.issues} open issues and pull requests</li>
           </ul>
-          <button type="button" class="btn btn-lg btn-block btn-outline-dark" onClick={this.handleCommitClick}>See commits</button>
+          <button type="button" className="btn btn-lg btn-block btn-outline-dark" onClick={this.handleCommitClick}>See commits</button>
         </div>
       </div>
     );

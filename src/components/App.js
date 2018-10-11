@@ -15,7 +15,7 @@ class App extends Component {
       items: []
     };
   }
-
+  
   async componentDidMount() {
     let reporitories = await fetch(`https://api.github.com/users/${user}/repos`)
       .then(res => res.json())
@@ -41,8 +41,9 @@ class App extends Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      return items.map(item => 
-        <RepositoryCard name={item.name}
+      return items.map((item, index) => 
+        <RepositoryCard key={index}
+                        name={item.name}
                         url={item.html_url} 
                         stars={item.stargazers_count} 
                         forks={item.forks_count} 

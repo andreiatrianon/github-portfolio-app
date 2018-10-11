@@ -41,9 +41,9 @@ class CommitPage extends Component {
       return <div>Loading...</div>;
     } else {
       return items.slice(0, 20)
-            .map(item =>
-            <CommitCard avatar={item.committer? item.committer.avatar_url:''} name={item.commit.committer.name || ''} date={item.commit.committer.date || ''} message={item.commit.message || ''} url={item.html_url || ''}/>
-            )
+              .map((item, index) =>
+              <CommitCard key={index} avatar={item.committer? item.committer.avatar_url:''} name={item.commit? item.commit.committer.name:''} date={item.commit? item.commit.committer.date:''} message={item.commit? item.commit.message:''} url={item.html_url? item.html_url:''}/>
+              )
     }
   }
 }
