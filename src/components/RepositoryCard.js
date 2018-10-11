@@ -22,7 +22,7 @@ class RepositoryCard extends React.Component {
 
     let template = <div class="container text-center d-flex flex-column align-items-center">
                     <h3 class="mb-5">20 last Commits from <span id="repository-name" class="my-text-yellow" onClick={this.handleRepositoryClick}>{this.props.name}</span></h3>
-                    <input type="search" class="form-control w-25 mb-5" id="search-input" placeholder="Search..." onInput={this.onSearchInput}></input>
+                    <input type="search" class="form-control w-25 mb-5" id="search-input" placeholder="Search commit..." onInput={this.onSearchInput}></input>
                     <div class="card-deck mb-3 text-center">
                       <CommitPage repository={this.props.name} />
                     </div>
