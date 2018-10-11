@@ -37,7 +37,7 @@ $ npm test
 
 ## ES6+ features
 
-####Template Literals
+###Template Literals
 Used as way to output variables in the string with new syntax ${NAME} inside it:
 
 ```
@@ -45,7 +45,7 @@ let reporitories = await fetch(`https://api.github.com/users/${user}/repos`)
 let url = `https://api.github.com/repos/${user}/${this.props.repository}/commits`
 ```
 
-####Arrow Functions
+###Arrow Functions
 Used with one line statement, becoming an expression and implicitly returning the result of that single statement:
 
 ```
@@ -54,7 +54,7 @@ Used with one line statement, becoming an expression and implicitly returning th
         ...
 ```
 
-####Classes
+###Classes
 Used to object-oriented programming (OOP) with of components that interact with each other to bring the solution:
 
 ```
