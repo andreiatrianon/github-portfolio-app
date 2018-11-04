@@ -2,6 +2,8 @@
 
 Project of a GitHub portfolio app. The goal of this project is to create an app that connects to the [GitHub API](https://developer.github.com/), and lists all the public repositories and the last commits of an user.
 
+![Demo](./github-portfolio-app.gif)
+
 ## version 1.0.0
 
 - lists all public repositories and the 20 last commits of an user;
@@ -74,10 +76,8 @@ export default RepositoryCard;
 
 ## Roadmap of the Project
 
-#### version 3.0.0 (forecast november/2018, contributions are accepted)
+#### version 2.0.0 (forecast november/2018, contributions are accepted)
 - contains the possibility to filter the order of the repositories that are shown (by stars, name, etc).
-
-#### version 2.0.0 (forecast october/2018)
 - [Marerial - UI](https://material-ui.com/) as web framework.
 
 #### version 1.0.0 (released)

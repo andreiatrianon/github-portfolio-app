@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import './App.css';
 
 import RepositoryCard from './RepositoryCard';
@@ -41,7 +40,6 @@ class App extends Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      let divOfRepositories = [];
       return items.map((item, index) => 
         <RepositoryCard key={index}
                         name={item.name}
